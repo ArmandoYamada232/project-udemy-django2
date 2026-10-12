@@ -23,10 +23,16 @@ from django.http import HttpResponse
 
 # Quando coloca o request como argumento é chamado de Http Request
 # Servidor retorna um Http Reponse
+
+# Cliente faz a request e o servidor responde a response
 def my_view(request):
     return HttpResponse('Olá Django')
 
+def home(request):
+    return HttpResponse('Home')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
     path('sobre/', my_view),
 ]
