@@ -25,14 +25,18 @@ from django.http import HttpResponse
 # Servidor retorna um Http Reponse
 
 # Cliente faz a request e o servidor responde a response
-def my_view(request):
-    return HttpResponse('Olá Django')
-
 def home(request):
-    return HttpResponse('Home')
+    return HttpResponse('Olá home')
+
+def sobre(request):
+    return HttpResponse('Olá sobre')
+
+def contato(request):
+    return HttpResponse('Olá contato')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('sobre/', my_view),
+    path('sobre/', sobre),
+    path('contato/', contato)
 ]
