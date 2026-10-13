@@ -18,17 +18,27 @@ Including another URLconf
 # path no minímo recebe uma rota e uma função
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.http import HttpResponse
-from recipes.views import home,contato, sobre
 # Quando coloca o request como argumento é chamado de Http Request
 # Servidor retorna um Http Reponse
 
 # Cliente faz a request e o servidor responde a response
+# O include faz incluir o url que tá na raiz do projeto ser incluido na pasta do projeto
+# path('', include('recipes.urls')) Demonstra o caminho onde tá a pasta recipe 
+# e dentro urls onde estão os links
+
+# path('recipes/' -> tipo subdominio dentro do path, include('recipes.urls'))
+
+# A url vai começar predeterminada com dominio/recipes/
+
+#path('recipes/', include('recipes.urls')),
+
+# dominio/recipes/vazio se tiver vazia a url
+# dominio/recipes/sobre
+# dominio/recipes/contato
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('sobre/', sobre),
-    path('contato/', contato)
+    path('', include('recipes.urls')),
 ]
