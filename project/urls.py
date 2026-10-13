@@ -20,19 +20,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-
+from recipes.views import home,contato, sobre
 # Quando coloca o request como argumento é chamado de Http Request
 # Servidor retorna um Http Reponse
 
 # Cliente faz a request e o servidor responde a response
-def home(request):
-    return HttpResponse('Olá home')
-
-def sobre(request):
-    return HttpResponse('Olá sobre')
-
-def contato(request):
-    return HttpResponse('Olá contato')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
